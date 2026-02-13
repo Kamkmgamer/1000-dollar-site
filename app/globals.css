@@ -1,26 +1,108 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --ivory: #FFFFF0;
+  --champagne: #F7E7CE;
+  --gold: #D4AF37;
+  --gold-light: #E5C76B;
+  --gold-dark: #B8960C;
+  --burgundy: #800020;
+  --burgundy-light: #A62D4B;
+  --navy: #000080;
+  --charcoal: #36454F;
+  --obsidian: #0B1215;
+  --cream: #FFFDD0;
+  --espresso: #3C2415;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --color-ivory: var(--ivory);
+  --color-champagne: var(--champagne);
+  --color-gold: var(--gold);
+  --color-gold-light: var(--gold-light);
+  --color-gold-dark: var(--gold-dark);
+  --color-burgundy: var(--burgundy);
+  --color-burgundy-light: var(--burgundy-light);
+  --color-navy: var(--navy);
+  --color-charcoal: var(--charcoal);
+  --color-obsidian: var(--obsidian);
+  --color-cream: var(--cream);
+  --color-espresso: var(--espresso);
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--ivory);
+  color: var(--obsidian);
+  overflow-x: hidden;
+  font-family: var(--font-body), serif;
+}
+
+.font-display {
+  font-family: var(--font-display), serif;
+}
+
+.font-heading {
+  font-family: var(--font-heading), serif;
+}
+
+.font-body {
+  font-family: var(--font-body), serif;
+}
+
+.font-ui {
+  font-family: var(--font-ui), sans-serif;
+}
+
+::selection {
+  background-color: var(--gold);
+  color: var(--obsidian);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+.shimmer-text {
+  background: linear-gradient(90deg, var(--gold) 25%, var(--gold-light) 50%, var(--gold) 75%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shimmer 3s linear infinite;
+}
+
+.luxury-shadow {
+  box-shadow: 0 4px 30px rgba(212, 175, 55, 0.15);
+}
+
+.luxury-shadow-dark {
+  box-shadow: 0 4px 30px rgba(128, 0, 32, 0.2);
+}
+
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
 }
